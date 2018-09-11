@@ -1,0 +1,212 @@
+//Reset
+@require _normalize
+@import _reset
+
+// Colors
+$bgColor = #222
+$titleColor = #fff1e7
+$textColor = #e3e3e3
+$navColor = #e8e8e8
+$navbgColor = #5a5a5a
+$labelColor = #646464
+$mainColor = #ff6900
+$accentColor = #ffbb00
+$divider = #323232
+$buttonText = #3a331f
+
+//Media Queries Mixin
+mobile()
+  @media screen and (max-width: 640px)
+    {block}
+
+tablet()
+  @media screen and (min-width: 641px) and (max-width: 800px)
+    {block}
+
+desktop()
+  @media screen and (min-width: 801px) and (max-width: 1200px)
+    {block}
+
+desktop-hd()
+  @media screen and (min-width: 1201px)
+    {block}
+
+// General Styles
+body
+  background-color: $bgColor
+  color: $titleColor
+  font-family: "Montserrat", sans-serif
+  font-size: 1em
+  text-rendering: optimizeLegibility
+  -webkit-font-smoothing: antialiased
+
+a
+  color: $labelColor
+
+  &:hover
+    color: $titleColor
+
+.container
+  display: flex
+  justify-content: space-between
+  align-items: center
+
+.slogan-box
+  background-color: $mainColor
+  color: $titleColor
+  height: 100vh
+  width: 50%
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: center
+
+  > .title
+    font-weight: bold
+    font-size: 1.648em //Fix for Firefox
+    line-height: 1.6em
+    text-align: center
+    margin-bottom: 1em
+    padding: 0 3.5em
+
+  //> .img
+    //background: url("../img/ferris-wheel.png")
+    //background-repeat: no-repeat
+    //background-position: center
+    //background-size: contain
+    //text-indent: -9999px
+    //height: 50%
+
+.form-box
+  height: 100vh
+  width: 50%
+  padding: 3em
+  display: flex
+  flex-direction: column
+  padding-top: 5.2em
+
+  > .navigation
+    position: absolute
+    top: 1em
+    right: 1em
+
+    > .list
+      display: inline
+      list-style: none
+
+      > .item
+        display: inline-block
+        width: 5em
+        height: 2em
+        text-align: center
+        border: 2px solid $divider
+        line-height: 1.6em
+        background-color: $bgColor
+
+        &:first-child
+          border-top-left-radius: 2em
+          border-bottom-left-radius: 2em
+          position: relative
+          left: 0.4em
+
+        &:last-child
+          border-top-right-radius: 2em
+          border-bottom-right-radius: 2em
+
+        > .nav-link
+          display: inline
+          text-align: center
+          vertical-align: center
+          text-decoration: none
+          text-transform: uppercase
+          font-weight: bold
+          font-size: 0.7em
+          color: $titleColor
+          padding: 0
+          margin: 0
+
+      > .active
+        background-color: $navbgColor
+
+  > .form
+    display: block
+
+    > .fieldset
+      padding: 1em
+
+      > .title
+        font-weight: bold
+        font-size: 1.6em
+        line-height: 1.6em
+        text-align: center
+        margin-bottom: 1.5em
+
+      > .label
+        text-transform: uppercase
+        color: $labelColor
+        font-size: 0.7em
+        line-height: 0.7em
+        font-weight: bold
+
+      > .input
+        width: 100%
+        background-color: $bgColor
+        color: $titleColor
+        font-family: 0.6em
+        font-weight: bold
+        text-transform: lowercase
+        border: none
+        border-bottom: 1px solid $divider
+        padding: 0.5em
+        margin-bottom: 1.5em
+
+        &::placeholder
+          font-size: 0.8em
+          color: $titleColor
+
+        &:focus
+          border-bottom: 2px solid $mainColor
+          outline: 0
+
+      > .checkbox
+        appearance: none
+        -webkit-appearance: none
+        -moz-appearance: none
+        border: 1px solid $divider
+        width: 1.2em
+        height: 1.2em
+        vertical-align: center
+        position: relative
+        top: 6px
+        transition: 0.2s all linear
+        //width: 100%
+        margin-top: 2em
+        cursor: pointer
+        font-size: 0.8em
+
+        &:checked
+          background-color: $accentColor
+
+      > .label-checkbox
+        line-height: 1em
+        display: inline-block
+
+      >.button
+        background-color: $accentColor
+        color: $buttonText
+        text-transform: uppercase
+        font-family: inherit
+        font-size: 0.8em
+        line-height: 3em
+        font-weight: bold
+        border: 1px solid #d39c07
+        border-radius: 20px
+        width: 10em
+        height: 3em
+        margin-top: 5em
+        margin-right: 6.5em
+        cursor: pointer
+        //display: block
+
+      >.span
+        font-size: 0.8em
