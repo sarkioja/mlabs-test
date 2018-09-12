@@ -35,18 +35,18 @@
           <h1 class="title">Sign up for beta</h1>
 
           <label class="label" for="username">Username</label>
-          <input class="input" type="text" id="username" name="name">
+          <input class="input" type="text" id="username" name="name" tabindex="0" required>
 
           <label class="label" for="password">Password</label>
-          <input class="input" type="password" id="password" name="password">
+          <input class="input" type="password" id="password" name="password" required>
 
           <label class="label" for="email">E-mail</label>
-          <input class="input" type="email" id="email" name="email" placeholder="your email goes here...">
+          <input class="input" type="email" id="email" name="email" placeholder="your email goes here..." required>
 
-          <input class="checkbox" type="checkbox" id="checkbox">
+          <input class="checkbox" type="checkbox" id="checkbox" required>
           <label class="label-checkbox span" for="checkbox">I agree to all statements included in <a href="#">terms of service</a></label>
 
-          <button class="button">Sign up</button>
+          <button class="button" type="submit" id="form-submit">Sign up</button>
           <p class="span"><a href="#">I am already a member</a></p>
         </fieldset>
       </form>
@@ -54,6 +54,6 @@
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="assets/js/main.js"></script>
+  <script src="assets/js/form.js"></script>
 </body>
 </html>

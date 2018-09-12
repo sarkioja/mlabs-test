@@ -606,3 +606,14 @@ a:hover {
     margin-top: 3em;
   }
 }
+.error {
+  border-bottom: 2px solid #f00 !important;
+}
+.success {
+  border-bottom: 2px solid #008000 !important;
+}
+.show-error {
+  color: #323232;
+  font-size: 75%;
+  vertical-align: middle;
+}
