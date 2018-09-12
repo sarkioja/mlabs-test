@@ -39,9 +39,9 @@ $(document).ready(function() {
     testCheckbox()
   })
 
-  checkbox.change(function() {
-    testCheckbox()
-  });
+  //checkbox.change(function() {
+  //  testCheckbox()
+  //});
 });
 
 
@@ -111,9 +111,12 @@ function testCheckbox() {
 
   if (checked) {
     validCheckbox = true;
-    console.log(validCheckbox);
+    $(".agree").addClass("hide");
+    $("#checkbox").removeClass("red-border");
   } else {
-    console.log("Caraiooo");
+    validCheckbox = false;
+    $(".agree").removeClass("hide");
+    $("#checkbox").addClass("red-border");
   }
 }
 
@@ -134,6 +137,7 @@ function validateFormSubmit() {
   } if (validEmail != true) {
      testMail()
   } if (validCheckbox != true) {
+    $(".agree").removeClass("hide");
     testCheckbox()
   }
 

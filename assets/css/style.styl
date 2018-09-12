@@ -14,6 +14,8 @@ $mainColor = #ff6900
 $accentColor = #ffbb00
 $divider = #323232
 $buttonText = #3a331f
+$red = #ff0000
+$green = #00ff00
 
 
 // General Styles
@@ -298,13 +300,20 @@ a
               display: block
               margin-top: 3em
 
+// MISC
 .error
-  border-bottom: 2px solid #ff0000 !important
+  border-bottom: 2px solid $red !important
 
 .success
-  border-bottom: 2px solid green !important
+  border-bottom: 2px solid $green !important
 
 .show-error
   color: $divider
   font-size: 75%
   vertical-align: middle
+
+.hide
+  display: none
+
+.red-border
+  border: 1px solid $red !important
