@@ -1,5 +1,8 @@
 // Variables
-var form = $("#form-submit");
+var form = $("#form");
+var submit = $("#form-submit");
+var modal = $(".modal");
+
 var user = $("#username");
 var validName = false;
 var password = $("#password");
@@ -16,9 +19,11 @@ var errorMsg = {
   3: " (Email must be a valid email adress)"
 };
 
+var array = [];
+
 // Calls
 $(document).ready(function() {
-  form.on("click", function(event) {
+  submit.on("click", function(event) {
     event.preventDefault();
     validateFormSubmit();
   })
@@ -39,9 +44,21 @@ $(document).ready(function() {
     testCheckbox()
   })
 
-  //checkbox.change(function() {
-  //  testCheckbox()
-  //});
+  $(".cancel").on("click", function () {
+    location.reload();
+  })
+
+  $("#modal-submit").on("click", function () {
+    modal.css("display", "none");
+    $(".content").css("display", "none");
+    modal.css("display", "block");
+    $(".content-confirmation").css("display", "block");
+
+      setTimeout(function () {
+          window.location.href = "https://www.mlabs.com.br/";
+      }, 3000);
+  })
+
 });
 
 
@@ -55,6 +72,19 @@ function displayError(l, e) {
   label.append(span);
 }
 
+function displayData(n,p,e) {
+  var arrayVar = [n, p, e];
+  var arrayLabels = ["name", "password", "email"];
+
+  for (var i = 0; i < arrayVar.length; i++) {
+    var span = $("<span>").addClass("data-content");
+    var p = $(".message-" + arrayLabels[i]);
+
+    span.text(arrayVar[i]);
+    p.append(span);
+  };
+
+}
 function testUser() {
   var n = user.val();
   var labelID = user.attr("id");
@@ -146,6 +176,10 @@ function validateFormSubmit() {
     password = password.val();
     email = email.val();
 
-    console.log(user, password, email);
+    array.push(user, password, email);
+    modal.css("display", "block");
+    //form.trigger("reset");
+    displayData(user, password, email);
+
   }
 }

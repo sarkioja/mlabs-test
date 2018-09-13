@@ -16,6 +16,7 @@ $divider = #323232
 $buttonText = #3a331f
 $red = #ff0000
 $green = #00ff00
+$modalBackground = rgba(32, 32, 32, 0.6)
 
 
 // General Styles
@@ -41,6 +42,7 @@ a
   +mobile()
     flex-direction: column-reverse
 
+//LEFT SIDE
 .slogan-box
   background-color: $mainColor
   color: $titleColor
@@ -89,6 +91,7 @@ a
       width: 85%
       height: 85%
 
+//RIGHT SIDE
 .form-box
   height: 100vh
   width: 50%
@@ -110,7 +113,7 @@ a
     font-size: 90%
 
   +desktop-fullhd()
-    padding: 9em
+    padding: 6em
     font-size: 120%
 
   > .navigation
@@ -299,6 +302,69 @@ a
           +desktop-fullhd()
               display: block
               margin-top: 3em
+//MODAL
+.modal
+  position fixed
+  left 0
+  top 0
+  width: 100%
+  height: 100%
+  background-color: $modalBackground
+  transform scale(1.1)
+  transition visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s
+  z-index: 20
+  overflow-x: hidden
+  display: none
+
+  > .content
+    text-align: center
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+    background-color: $titleColor
+    width: 30vw
+    padding: 0.9em 0em 0.9em 0em
+    border-radius: 0.5em
+    font-size: 0.7em
+    font-weight: 400
+    color: $labelColor
+
+    > .title
+      font-weight: 400
+      color: $divider
+      font-size: 1.6em
+      margin-top: 1em
+
+    > .message
+      margin: 2em
+
+    > .button
+      background-color: $accentColor
+      color: $buttonText
+      text-transform: uppercase
+      font-family: inherit
+      font-size: 0.8em
+      line-height: 2.8em
+      font-weight: 700
+      border: 1px solid #d39c07
+      border-radius: 20px
+      width: 11em
+      height: 3em
+      margin-bottom: 1em
+      //margin-right: 6em
+      cursor: pointer
+      
+    > .cancel
+      display: block
+      text-transform: lowercase
+
+      > a :hover
+        color: $textColor
+
+  > .content-confirmation
+    @extends .modal > .content
+    display: none
 
 // MISC
 .error
