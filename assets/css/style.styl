@@ -28,12 +28,15 @@ body
   font-size: 1em
   text-rendering: optimizeLegibility
   -webkit-font-smoothing: antialiased
+  transition: 0.5s
 
 a
   color: $labelColor
+  transition: color 0.5s
 
   &:hover
     color: $titleColor
+    transition: color 0.5s
 
 .container
   display: flex
@@ -207,6 +210,7 @@ a
         border-bottom: 1px solid $divider
         padding: 0.5em
         margin-bottom: 1.5em
+        transition: 0.5s all linear
 
         +mobile()
           margin-bottom: 1.25em
@@ -232,7 +236,7 @@ a
         vertical-align: center
         position: relative
         top: 3px
-        transition: 0.2s all linear
+        transition: 0.5s all linear
         //width: 100%
         margin-top: 2em
         cursor: pointer
@@ -275,6 +279,11 @@ a
         margin-top: 5em
         margin-right: 6em
         cursor: pointer
+        transition: opacity 0.5s 0s
+
+        &:hover
+          opacity: 0.8
+          transition: opacity 0.5s 0s
 
         +mobile()
           display: block
@@ -319,8 +328,10 @@ a
   width: 100%
   height: 100%
   background-color: $modalBackground
+  //visibility: hidden
+  //opacity: 0
   transform scale(1.1)
-  transition visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s
+  transition visibility 0.5s linear 1s, opacity 0.5s 0s, transform 1s
   z-index: 20
   overflow-x: hidden
   display: none
@@ -338,6 +349,7 @@ a
     font-size: 0.9em
     font-weight: 400
     color: $labelColor
+    transition: transform 1s
 
     +mobile()
       width: 60vw

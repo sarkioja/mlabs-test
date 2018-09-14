@@ -284,12 +284,15 @@ body {
   font-size: 1em;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+  transition: 0.5s;
 }
 a {
   color: #646464;
+  transition: color 0.5s;
 }
 a:hover {
   color: #fff1e7;
+  transition: color 0.5s;
 }
 .container {
   display: flex;
@@ -489,6 +492,7 @@ a:hover {
   border-bottom: 1px solid #323232;
   padding: 0.5em;
   margin-bottom: 1.5em;
+  transition: 0.5s all linear;
 }
 @media screen and (max-width: 640px) {
   .form-box > .form > .fieldset > .input {
@@ -518,7 +522,7 @@ a:hover {
   vertical-align: center;
   position: relative;
   top: 3px;
-  transition: 0.2s all linear;
+  transition: 0.5s all linear;
   margin-top: 2em;
   cursor: pointer;
   font-size: 0.8em;
@@ -567,6 +571,11 @@ a:hover {
   margin-top: 5em;
   margin-right: 6em;
   cursor: pointer;
+  transition: opacity 0.5s 0s;
+}
+.form-box > .form > .fieldset >.button:hover {
+  opacity: 0.8;
+  transition: opacity 0.5s 0s;
 }
 @media screen and (max-width: 640px) {
   .form-box > .form > .fieldset >.button {
@@ -626,7 +635,7 @@ a:hover {
   height: 100%;
   background-color: rgba(32,32,32,0.6);
   transform: scale(1.1);
-  transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+  transition: visibility 0.5s linear 1s, opacity 0.5s 0s, transform 1s;
   z-index: 20;
   overflow-x: hidden;
   display: none;
@@ -645,6 +654,7 @@ a:hover {
   font-size: 0.9em;
   font-weight: 400;
   color: #646464;
+  transition: transform 1s;
 }
 @media screen and (max-width: 640px) {
   .modal > .content,
