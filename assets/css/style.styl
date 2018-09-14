@@ -14,6 +14,7 @@ $mainColor = #ff6900
 $accentColor = #ffbb00
 $divider = #323232
 $buttonText = #3a331f
+$white = #fff
 $red = #ff0000
 $green = #00ff00
 $modalBackground = rgba(32, 32, 32, 0.6)
@@ -280,6 +281,10 @@ a
           margin: auto
           margin-top: 3em
 
+        +desktop-hd()
+          display: block
+          margin-top: 3em
+
         +desktop-fullhd()
           display: block
           margin-top: 4em
@@ -299,9 +304,13 @@ a
             margin-top: 2em
             text-align: center
 
+          +desktop-hd()
+            display: block
+            margin-top: 3em
+
           +desktop-fullhd()
-              display: block
-              margin-top: 3em
+            display: block
+            margin-top: 3em
 //MODAL
 .modal
   position fixed
@@ -322,13 +331,21 @@ a
     top: 50%
     left: 50%
     transform: translate(-50%, -50%)
-    background-color: $titleColor
+    background-color: $white
     width: 30vw
     padding: 0.9em 0em 0.9em 0em
     border-radius: 0.5em
-    font-size: 0.7em
+    font-size: 0.9em
     font-weight: 400
     color: $labelColor
+
+    +mobile()
+      width: 60vw
+      font-size: 0.7em
+
+    +tablet()
+      width: 50vw
+      font-size: 0.7em
 
     > .title
       font-weight: 400
@@ -339,31 +356,44 @@ a
     > .message
       margin: 2em
 
+      > .data-content
+        font-size: 100%
+        font-weight: normal
+
+    > .message-name,
+      .message-password,
+      .message-email
+        font-size: 80%
+        font-weight: 700
+        color: $divider
+        margin: 2em
+
     > .button
       background-color: $accentColor
       color: $buttonText
       text-transform: uppercase
       font-family: inherit
-      font-size: 0.8em
-      line-height: 2.8em
+      font-size: 80%
       font-weight: 700
       border: 1px solid #d39c07
       border-radius: 20px
       width: 11em
       height: 3em
-      margin-bottom: 1em
-      //margin-right: 6em
+      margin-top: 1em
+      margin-bottom: 2em
       cursor: pointer
-      
-    > .cancel
-      display: block
-      text-transform: lowercase
+
+    > .alternate
+      @extends .modal > .content > .button
+      background-color: white
+      color: $buttonText
 
       > a :hover
         color: $textColor
 
   > .content-confirmation
     @extends .modal > .content
+    font-size: 0.8em
     display: none
 
 // MISC

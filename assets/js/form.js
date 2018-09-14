@@ -19,8 +19,6 @@ var errorMsg = {
   3: " (Email must be a valid email adress)"
 };
 
-var array = [];
-
 // Calls
 $(document).ready(function() {
   submit.on("click", function(event) {
@@ -44,19 +42,12 @@ $(document).ready(function() {
     testCheckbox()
   })
 
-  $(".cancel").on("click", function () {
+  $("#modal-cancel").on("click", function () {
     location.reload();
   })
 
   $("#modal-submit").on("click", function () {
-    modal.css("display", "none");
-    $(".content").css("display", "none");
-    modal.css("display", "block");
-    $(".content-confirmation").css("display", "block");
-
-      setTimeout(function () {
-          window.location.href = "https://www.mlabs.com.br/";
-      }, 3000);
+    callModal()
   })
 
 });
@@ -83,8 +74,19 @@ function displayData(n,p,e) {
     span.text(arrayVar[i]);
     p.append(span);
   };
-
 }
+
+function callModal() {
+  modal.css("display", "none");
+  $(".content").css("display", "none");
+  modal.css("display", "block");
+  $(".content-confirmation").css("display", "block");
+
+    setTimeout(function () {
+        window.location.href = "https://www.mlabs.com.br/";
+    }, 3000);
+}
+
 function testUser() {
   var n = user.val();
   var labelID = user.attr("id");
@@ -176,10 +178,9 @@ function validateFormSubmit() {
     password = password.val();
     email = email.val();
 
-    array.push(user, password, email);
     modal.css("display", "block");
-    //form.trigger("reset");
     displayData(user, password, email);
 
+    //postDataToJson()
   }
 }
