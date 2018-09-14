@@ -284,7 +284,7 @@ body {
   font-size: 1em;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
-  transition: 0.5s;
+  transition: 0.5s all linear;
 }
 a {
   color: #646464;
@@ -634,11 +634,10 @@ a:hover {
   width: 100%;
   height: 100%;
   background-color: rgba(32,32,32,0.6);
-  transform: scale(1.1);
-  transition: visibility 0.5s linear 1s, opacity 0.5s 0s, transform 1s;
   z-index: 20;
   overflow-x: hidden;
   display: none;
+  animation: fade 1s;
 }
 .modal > .content,
 .modal > .content-confirmation {
@@ -654,7 +653,7 @@ a:hover {
   font-size: 0.9em;
   font-weight: 400;
   color: #646464;
-  transition: transform 1s;
+  animation: fade 1s;
 }
 @media screen and (max-width: 640px) {
   .modal > .content,
@@ -735,13 +734,46 @@ a:hover {
   border-bottom: 2px solid #0f0 !important;
 }
 .show-error {
-  color: #323232;
+  color: #3f3f3f;
   font-size: 75%;
   vertical-align: middle;
+  transition: 0.5s all linear;
 }
 .hide {
   display: none;
 }
 .red-border {
   border: 1px solid #f00 !important;
+}
+@-moz-keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-o-keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

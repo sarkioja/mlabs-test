@@ -10,6 +10,7 @@ $textColor = #e3e3e3
 $navColor = #e8e8e8
 $navbgColor = #5a5a5a
 $labelColor = #646464
+$errorColor = #3f3f3f
 $mainColor = #ff6900
 $accentColor = #ffbb00
 $divider = #323232
@@ -28,7 +29,7 @@ body
   font-size: 1em
   text-rendering: optimizeLegibility
   -webkit-font-smoothing: antialiased
-  transition: 0.5s
+  transition: 0.5s all linear
 
 a
   color: $labelColor
@@ -328,13 +329,10 @@ a
   width: 100%
   height: 100%
   background-color: $modalBackground
-  //visibility: hidden
-  //opacity: 0
-  transform scale(1.1)
-  transition visibility 0.5s linear 1s, opacity 0.5s 0s, transform 1s
   z-index: 20
   overflow-x: hidden
   display: none
+  animation: fade 1s
 
   > .content
     text-align: center
@@ -349,7 +347,7 @@ a
     font-size: 0.9em
     font-weight: 400
     color: $labelColor
-    transition: transform 1s
+    animation: fade 1s
 
     +mobile()
       width: 60vw
@@ -416,12 +414,19 @@ a
   border-bottom: 2px solid $green !important
 
 .show-error
-  color: $divider
+  color: $errorColor
   font-size: 75%
   vertical-align: middle
+  transition: 0.5s all linear
 
 .hide
   display: none
 
 .red-border
   border: 1px solid $red !important
+
+//Animations
+@keyframes fade {
+    from {opacity: 0}
+    to {opacity: 1}
+}

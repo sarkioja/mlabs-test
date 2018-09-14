@@ -14,7 +14,7 @@ var validCheckbox = false;
 
 var errorMsg = {
   0: " (This field cannot be blank)",
-  1: " (Username must be at least 3 characters)",
+  1: " (Username must be at least 3 characters - Only A-Z)",
   2: " (Password must be at least 4 characters)",
   3: " (Email must be a valid email adress)"
 };
@@ -57,7 +57,7 @@ $(document).ready(function() {
 
 function displayError(l, e) {
   var label = $("label[for=" + l + "]");
-  var span = $("<span>").addClass("show-error").attr("id", "show-error-"+l);
+  var span = $("<span>").addClass("show-error").attr("id", "show-error-"+l).css("animation", "fade 0.5s");
   span.text(e)
 
   label.append(span);
@@ -78,9 +78,9 @@ function displayData(n,p,e) {
 
 function callModal() {
   modal.css("display", "none");
-  $(".content").css("display", "none");
+  $(".content").css("display", "none").css("animation", "fade 0.5s");
   modal.css("display", "block");
-  $(".content-confirmation").css("display", "block");
+  $(".content-confirmation").css("display", "block").css("animation", "fade 0.5s");
 
     setTimeout(function () {
         window.location.href = "https://www.mlabs.com.br/";
@@ -143,11 +143,11 @@ function testCheckbox() {
 
   if (checked) {
     validCheckbox = true;
-    $(".agree").addClass("hide");
+    $(".agree").addClass("hide").css("animation", "fade 0.5s");
     $("#checkbox").removeClass("red-border");
   } else {
     validCheckbox = false;
-    $(".agree").removeClass("hide");
+    $(".agree").removeClass("hide").css("animation", "fade 0.5s");
     $("#checkbox").addClass("red-border");
   }
 }
